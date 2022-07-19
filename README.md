@@ -3,5 +3,6 @@
 Tunnel it with ngrok
 
 ```
-./ngrok http localhost:3243
+node index.js &
+~/bin/ngrok http localhost:3243
 ```
