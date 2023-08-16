@@ -5,5 +5,5 @@ Tunnel it with ngrok
 ```
 node index.js
 
-~/bin/ngrok http localhost:3243
+ngrok http localhost:3243
 ```
