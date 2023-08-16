@@ -19,6 +19,8 @@ app.use(async ctx => {
     },
   };
 
+  ctx.body = ctx.request;
+
   ctx.set('X-My-Custom-Header', '123abc');
 
   ctx.cookies.set('X-My-Custom-Cookie', 'valueOfCookie');
