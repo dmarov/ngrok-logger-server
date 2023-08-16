@@ -1,0 +1,6 @@
+t=2023-08-16T16:36:10+0000 lvl=info msg="no configuration paths supplied"
+t=2023-08-16T16:36:10+0000 lvl=info msg="ignoring default config path, could not stat it" path=/home/user/.config/ngrok/ngrok.yml
+t=2023-08-16T16:36:10+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2023-08-16T16:36:10+0000 lvl=info msg="client session established" obj=tunnels.session obj=csess id=547c43144eee
+t=2023-08-16T16:36:10+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2023-08-16T16:36:10+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:3243 url=https://f12b-5-142-110-120.ngrok.io
