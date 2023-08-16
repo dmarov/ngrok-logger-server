@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  ngrok_http:
+  ngrok_web:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
@@ -9,5 +9,5 @@ services:
         HOST_GROUP_ID: ${HOST_GROUP_ID:-1000}
     volumes:
       - ./:/app
-    command: /bin/sh -c '/app/entrypoint.sh'
+    command: /bin/sh -c '/entrypoint.sh'
 

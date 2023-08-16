@@ -15,11 +15,11 @@ ARG USER_NAME=user
 
 # create user if not exist
 RUN useradd -m -s /usr/bin/zsh -u "${HOST_USER_ID}" "${USER_NAME}"
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # act as non-root user inside container (1000:1000 by default)
 USER ${HOST_USER_ID}:${HOST_GROUP_ID}
-
-COPY docker/entrypoint.sh entrypoint.sh
 
 # create empty config in order to avoid initial prompt
 RUN touch ~/.zshrc
