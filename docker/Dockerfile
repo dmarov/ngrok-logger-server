@@ -2,7 +2,10 @@
 FROM archlinux AS image-build
 
 # zsh used for operating inside docker container
-RUN pacman -Syu zsh node
+RUN pacman --noconfirm -Syu zsh nodejs
+
+RUN curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz --output ngrok.tgz &&\
+ tar xvzf ./ngrok.tgz -C /usr/local/bin
 
 WORKDIR /app
 
@@ -11,13 +14,7 @@ ARG HOST_GROUP_ID=1000
 ARG USER_NAME=user
 
 # create user if not exist
-RUN addgroup -S ${HOST_GROUP_ID} &&\
- adduser\
- --disabled-password\
- --gecos ""\
- --ingroup "${HOST_GROUP_ID}"\
- --uid "${HOST_USER_ID}"\
- "${USER_NAME}" || true
+RUN useradd -m -s /usr/bin/zsh -u "${HOST_USER_ID}" "${USER_NAME}"
 
 # act as non-root user inside container (1000:1000 by default)
 USER ${HOST_USER_ID}:${HOST_GROUP_ID}

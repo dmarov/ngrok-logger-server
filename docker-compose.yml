@@ -9,5 +9,5 @@ services:
         HOST_GROUP_ID: ${HOST_GROUP_ID:-1000}
     volumes:
       - ./:/app
-    command: /bin/sh -c './entrypoint.sh'
+    command: /bin/sh -c '/app/entrypoint.sh'
 
