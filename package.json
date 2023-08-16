@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

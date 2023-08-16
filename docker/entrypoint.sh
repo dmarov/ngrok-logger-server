@@ -3,7 +3,7 @@
 rm ./ngrok-log.txt
 
 # Start web server
-node index.js &
+npx nodemon index.js &
 
 # Start ngrok tunnel
 ngrok http 3243 --log ./ngrok-log.txt &

@@ -2,7 +2,7 @@
 FROM archlinux AS image-build
 
 # zsh used for operating inside docker container
-RUN pacman --noconfirm -Syu zsh nodejs
+RUN pacman --noconfirm -Syu zsh nodejs npm
 
 RUN curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz --output ngrok.tgz &&\
  tar xvzf ./ngrok.tgz -C /usr/local/bin
