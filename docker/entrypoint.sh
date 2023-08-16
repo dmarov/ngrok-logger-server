@@ -10,7 +10,7 @@ ngrok http 3243 --log ./ngrok-log.txt &
 
 sleep 1
 
-cat ./ngrok-log.txt | grep "started tunnel"
+cat ./ngrok-log.txt | grep "msg=\"started tunnel\"" | grep -oP "url=.*$"
 
 # Wait for any process to exit
 wait -n
