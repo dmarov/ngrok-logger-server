@@ -35,7 +35,7 @@ router.post('/set-cookie', (ctx, next) => {
   next();
 });
 
-router.get('/reflect', (ctx, next) => {
+router.post('/reflect', (ctx, next) => {
   ctx.body = ctx.request;
   next();
 });
