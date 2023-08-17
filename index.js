@@ -58,7 +58,19 @@ router.post('/robots-1890', (ctx, next) => {
 
   ctx.set('my-header-1', 'dsdadfasdfasdf');
   ctx.set('my-header-2', 'fdfhgfhjfhxcfghhd');
-  ctx.body = {msg: "Hello World"};
+  ctx.body = {
+    msg1: "Hello World",
+    msg2: "Hello World",
+    msg3: "Hello World",
+    msg4: "Hello World",
+    msg4: {
+      test: {
+        test: {
+          message: "Hello World",
+        },
+      },
+    },
+  };
   next();
 });
 
