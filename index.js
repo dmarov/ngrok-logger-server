@@ -1,7 +1,15 @@
 const Koa = require('koa');
-const app = new Koa();
+const Router = require('@koa/router');
 
-app.use(async ctx => {
+const app = new Koa();
+const router = new Router();
+
+router.use(async (ctx, next) => {
+  console.log(ctx.request);
+  next();
+});
+
+router.get('/', (ctx, next) => {
   ctx.body = {
     message: "Hello World",
     obj: { 
@@ -18,14 +26,29 @@ app.use(async ctx => {
       field11: "b",
     },
   };
-
-  ctx.body = ctx.request;
-
-  ctx.set('X-My-Custom-Header', '123abc');
-
-  ctx.cookies.set('X-My-Custom-Cookie', 'valueOfCookie');
-
-  console.log(ctx.request);
+  next();
 });
 
-app.listen(3243);
+router.get('/set-cookie', (ctx, next) => {
+  ctx.cookies.set('my-secret-cookie', '312sd6f7sdfkjqwe9');
+  next();
+});
+
+router.get('/reflect', (ctx, next) => {
+  ctx.body = ctx.request;
+  next();
+});
+
+router.get('/authorize', (ctx, next) => {
+  if (ctx.cookies.get('auth-cookie') !== '312sd6f7sdfkjqwe9') {
+    ctx.status = 401;
+  }
+
+  ctx.body = "success";
+  next();
+});
+
+app
+  .use(router.routes())
+  .use(router.allowedMethods())
+  .listen(3243);

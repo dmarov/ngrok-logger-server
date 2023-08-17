@@ -3,7 +3,5 @@
 Tunnel it with ngrok
 
 ```
-node index.js
-
-ngrok http localhost:3243
+docker compose up
 ```
