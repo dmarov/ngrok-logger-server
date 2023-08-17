@@ -29,8 +29,9 @@ router.get('/', (ctx, next) => {
   next();
 });
 
-router.get('/set-cookie', (ctx, next) => {
+router.post('/set-cookie', (ctx, next) => {
   ctx.cookies.set('my-secret-cookie', '312sd6f7sdfkjqwe9');
+  ctx.body = {};
   next();
 });
 
@@ -39,14 +40,15 @@ router.get('/reflect', (ctx, next) => {
   next();
 });
 
-router.get('/authorize', (ctx, next) => {
+router.post('/authorize', (ctx, next) => {
   if (ctx.cookies.get('auth-cookie') !== '312sd6f7sdfkjqwe9') {
     ctx.status = 401;
+    ctx.body = {};
     next();
     return;
   }
 
-  ctx.body = "success";
+  ctx.body = {};
   next();
 });
 
@@ -67,6 +69,8 @@ router.post('/robots-1890', (ctx, next) => {
       test: {
         test: {
           message: "Hello World",
+          message2: "Hello World2",
+          message3: "Hello World3",
         },
       },
     },
