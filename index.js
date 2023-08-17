@@ -42,6 +42,8 @@ router.get('/reflect', (ctx, next) => {
 router.get('/authorize', (ctx, next) => {
   if (ctx.cookies.get('auth-cookie') !== '312sd6f7sdfkjqwe9') {
     ctx.status = 401;
+    next();
+    return;
   }
 
   ctx.body = "success";
