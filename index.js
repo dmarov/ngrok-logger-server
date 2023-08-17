@@ -50,6 +50,18 @@ router.get('/authorize', (ctx, next) => {
   next();
 });
 
+
+router.post('/robots-1890', (ctx, next) => {
+  ctx.cookies.set('my-cookie-1', '312sd6f7sdfkjqwe9');
+  ctx.cookies.set('my-cookie-2', 'sadasqdas');
+  ctx.cookies.set('my-cookie-3', 'dffgghdgdfgsdfg');
+
+  ctx.set('my-header-1', 'dsdadfasdfasdf');
+  ctx.set('my-header-2', 'fdfhgfhjfhxcfghhd');
+  ctx.body = {msg: "Hello World"};
+  next();
+});
+
 app
   .use(router.routes())
   .use(router.allowedMethods())
