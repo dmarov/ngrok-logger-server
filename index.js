@@ -6,6 +6,8 @@ const router = new Router();
 
 router.use(async (ctx, next) => {
   console.log(ctx.request);
+  console.log(new Date());
+  console.log("\n");
   next();
 });
 
