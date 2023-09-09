@@ -9,5 +9,7 @@ services:
         HOST_GROUP_ID: ${HOST_GROUP_ID:-1000}
     volumes:
       - ./:/app
-    command: /bin/sh -c '/entrypoint.sh'
+    environment:
+      NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN:-""}
+      NGROK_STATIC_DOMAIN: ${NGROK_STATIC_DOMAIN:-""}
 

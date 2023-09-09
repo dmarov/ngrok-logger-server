@@ -12,6 +12,7 @@ WORKDIR /app
 ARG HOST_USER_ID=1000
 ARG HOST_GROUP_ID=1000
 ARG USER_NAME=user
+ARG NGROK_AUTH_TOKEN=
 
 # create user if not exist
 RUN useradd -m -s /usr/bin/zsh -u "${HOST_USER_ID}" "${USER_NAME}"
@@ -23,3 +24,5 @@ USER ${HOST_USER_ID}:${HOST_GROUP_ID}
 
 # create empty config in order to avoid initial prompt
 RUN touch ~/.zshrc
+
+CMD ["/bin/sh", "-c", "/entrypoint.sh"]

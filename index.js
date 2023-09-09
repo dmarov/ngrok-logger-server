@@ -11,6 +11,11 @@ router.use(async (ctx, next) => {
   next();
 });
 
+router.all('/all/(.*)', (ctx, next) => {
+  ctx.body = ctx.request;
+  next();
+});
+
 router.get('/', (ctx, next) => {
   ctx.body = {
     message: "Hello World",
