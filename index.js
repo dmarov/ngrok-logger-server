@@ -86,6 +86,23 @@ router.post('/dummy', (ctx, next) => {
   next();
 });
 
+
+router.get('/array', (ctx, next) => {
+  ctx.body = {
+    array: [1, 2, 3, 4, 5],
+  };
+  next();
+});
+
+
+router.get('/ips', (ctx, next) => {
+  const a = Array.from({ length: 10 }).map((el, index) => `192.168.0.${index}`);
+  ctx.body = {
+    array: a,
+  };
+  next();
+});
+
 app
   .use(router.routes())
   .use(router.allowedMethods())
