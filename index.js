@@ -12,16 +12,6 @@ router.use(async (ctx, next) => {
   next();
 });
 
-router.all('/all/(.*)', (ctx, next) => {
-  ctx.body = {
-    method: ctx.request.method,
-    headers: ctx.request.headers,
-    body: ctx.request.body,
-    url: ctx.request.url,
-  };
-  next();
-});
-
 router.get('/', (ctx, next) => {
   ctx.body = {
     message: "Hello World",
@@ -57,6 +47,16 @@ router.post('/authorize', (ctx, next) => {
   }
 
   ctx.body = {};
+  next();
+});
+
+router.all('/reflect/(.*)', (ctx, next) => {
+  ctx.body = {
+    method: ctx.request.method,
+    headers: ctx.request.headers,
+    body: ctx.request.body,
+    url: ctx.request.url,
+  };
   next();
 });
 
