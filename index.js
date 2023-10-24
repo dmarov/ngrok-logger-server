@@ -53,9 +53,9 @@ router.post('/authorize', (ctx, next) => {
 router.all('/reflect/(.*)', (ctx, next) => {
   ctx.body = {
     method: ctx.request.method,
+    url: ctx.request.url,
     headers: ctx.request.headers,
     body: ctx.request.body,
-    url: ctx.request.url,
   };
   next();
 });
