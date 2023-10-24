@@ -14,6 +14,7 @@ router.use(async (ctx, next) => {
 
 router.all('/all/(.*)', (ctx, next) => {
   ctx.body = {
+    method: ctx.request.method,
     headers: ctx.request.headers,
     body: ctx.request.body,
     url: ctx.request.url,
