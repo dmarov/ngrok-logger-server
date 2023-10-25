@@ -6,7 +6,14 @@ const app = new Koa();
 const router = new Router();
 
 router.use(async (ctx, next) => {
-  console.log(ctx.request);
+  const request = {
+    method: ctx.request.method,
+    url: ctx.request.url,
+    headers: ctx.request.headers,
+    body: ctx.request.body,
+  };
+
+  console.log(request);
   console.log(new Date());
   console.log("\n");
   next();
